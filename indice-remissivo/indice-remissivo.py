@@ -1,9 +1,11 @@
+import sys
+
 line=""
 lines=[]
 words=[]
 wordsTable={}
 
-fileTest = open("palavras.txt", "r")
+fileTest = open(sys.argv[1], "r")
 line = fileTest.readline()
 while line!="":
 	lines.append(line.split())
@@ -20,7 +22,7 @@ for line in lines:
 			else:
 				wordsTable[word]=1
 		else:
-			if word in wordsTable:
+			if word[:-1] in wordsTable:
 				wordsTable[word[:-1]]+=1
 			else:
 				wordsTable[word[:-1]]=1
